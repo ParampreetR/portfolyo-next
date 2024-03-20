@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const ScrollToTopOnLoad = () => {
   const history = useHistory();
@@ -7,9 +7,10 @@ const ScrollToTopOnLoad = () => {
     const unlisten = history.listen(() => {
       return () => unlisten();
     });
-    window.scrollTo(0, 0);
+
+    if (typeof window != "undefined") window.scrollTo(0, 0);
   }, [history]);
   return null;
 };
 
-export default ScrollToTopOnLoad
+export default ScrollToTopOnLoad;

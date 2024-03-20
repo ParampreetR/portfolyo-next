@@ -5,7 +5,7 @@ import parser from "html-react-parser";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import { Link as ScrollLink } from "react-scroll";
 import { useEffect } from "react";
-import WaterWave from "react-water-wave";
+// import WaterWave from "react-water-wave";
 import Preloader from "../Preloader/Preloader";
 
 const Hero = ({ data, socialData }) => {
@@ -13,15 +13,20 @@ const Hero = ({ data, socialData }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollValue = window.scrollY;
+      let scrollValue;
+      if (typeof window != "undefined") {
+        scrollValue = window.scrollY;
+      }
       const heroElements = document.querySelector(".st-hero-wrap .st-hero-img");
       if (heroElements) {
         heroElements.style.right = `${scrollValue * -0.1}px`;
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    if (typeof window != "undefined")
+      window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (typeof window != "undefined")
+        window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

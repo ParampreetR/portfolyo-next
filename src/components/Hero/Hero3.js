@@ -3,7 +3,7 @@ import React from "react";
 import "./Hero.scss";
 import perser from "html-react-parser";
 import SocialLinks2 from "../SocialLinks/SocialLinks2";
-import WaterWave from "react-water-wave";
+// import WaterWave from "react-water-wave";
 import Preloader from "../Preloader/Preloader";
 
 const Hero3 = ({ data, socialData }) => {
@@ -11,11 +11,12 @@ const Hero3 = ({ data, socialData }) => {
   return !data ? (
     <div />
   ) : (
-    <WaterWave
-      id="home"
-      className="st-hero st-style2 st-bg st-dynamic-bg st-ripple-version"
-      imageUrl={""}
-    >
+    // <WaterWave
+    //   id="home"
+    //   className="st-hero st-style2 st-bg st-dynamic-bg st-ripple-version"
+    //   imageUrl={""}
+    // >
+    <div className="st-hero st-style2 st-bg st-dynamic-bg st-ripple-version">
       {() => (
         <div className="container">
           <div className="st-hero-text">
@@ -37,7 +38,8 @@ const Hero3 = ({ data, socialData }) => {
           </div>
         </div>
       )}
-    </WaterWave>
+    </div>
+    // </WaterWave>
   );
 };
 
